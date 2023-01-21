@@ -33,6 +33,17 @@
     <Compile Update="UserInterface\Systems\Inventory\Windows\StrippingWindow.xaml.cs">
       <DependentUpon>StrippingWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Remove="UserInterface\Systems\TattleSystem\12\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="UserInterface\Systems\TattleSystem\Widgets\TattleSystemBar.xml" />
+    <None Remove="UserInterface\Systems\TattleSystem\12\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="UserInterface\Systems\TattleSystem\12\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Remove="UserInterface\Systems\TattleSystem\12\**" />
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\XamlIL.targets" />
   <Import Project="..\RobustToolbox\MSBuild\Robust.Analyzers.targets" />
