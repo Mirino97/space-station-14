@@ -2,8 +2,10 @@
                   xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.TattleSystem.Widgets"
                   MinSize="64 64">
     <PanelContainer HorizontalAlignment="Right" VerticalAlignment="Bottom">
-        <BoxContainer Name="AlertContainer" Access="Public" Orientation="Vertical">
+        <BoxContainer Name="TattleSystemContainer" Access="Public" Orientation="Horizontal">
             <Button Name="PressButton" Text="Click me!" />
+            <Button Name="PressButton1" Text="Click me!" />
+            <Button Name="PressButton2" Text="Click me!" />
         </BoxContainer>
     </PanelContainer>
 </widgets:TattleSystemBar>
