@@ -21,6 +21,7 @@ public sealed partial class DefaultGameScreen : UIScreen
         SetAnchorAndMarginPreset(Hotbar, LayoutPreset.BottomWide, margin: 5);
         SetAnchorAndMarginPreset(Chat, LayoutPreset.TopRight, margin: 10);
         SetAnchorAndMarginPreset(Alerts, LayoutPreset.TopRight, margin: 10);
+        SetAnchorAndMarginPreset(TattleSystemBar, LayoutPreset.TopRight, margin: 10);
 
         Chat.OnResized += ChatOnResized;
     }
@@ -28,6 +29,8 @@ public sealed partial class DefaultGameScreen : UIScreen
     private void ChatOnResized()
     {
         var marginBottom = Chat.GetValue<float>(MarginBottomProperty);
+        var marginLeft = Chat.GetValue<float>(MarginLeftProperty) + -130; //TODO: mirino this atrocity needs be corrected
         SetMarginTop(Alerts, marginBottom);
+        SetMarginLeft(TattleSystemBar, marginLeft);
     }
 }
