@@ -7,6 +7,7 @@ using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Popups;
+using Content.Shared.Tattle;
 using Content.Shared.Toggleable;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
@@ -17,6 +18,7 @@ namespace Content.Server.Stunnable.Systems
     public sealed class StunbatonSystem : EntitySystem
     {
         [Dependency] private readonly SharedItemSystem _item = default!;
+        [Dependency] private readonly TattleSystem _tattleSystem = default!;
 
         public override void Initialize()
         {
@@ -62,6 +64,8 @@ namespace Content.Server.Stunnable.Systems
             }
             else
             {
+                //TODO: mirino bro please remember to remove this debug hack from here before PR'ing
+                _tattleSystem.ShowAlert(args.User);
                 TurnOn(comp, args.User);
             }
         }

@@ -4,6 +4,7 @@
   parent: BaseMobDiona
   id: MobDiona
   components:
+    - type: Tattle
     - type: CombatMode
       canDisarm: true
     - type: InteractionPopup
