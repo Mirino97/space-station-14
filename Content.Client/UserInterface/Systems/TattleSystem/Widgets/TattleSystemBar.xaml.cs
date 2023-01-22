@@ -9,5 +9,8 @@ namespace Content.Client.UserInterface.Systems.TattleSystem.Widgets;
 [GenerateTypedNameReferences]
 public sealed partial class TattleSystemBar : UIWidget
 {
-
+    public void Test()
+    {
+        Logger.Info("Test inside Tattle.xaml hit!");
+    }
 }
