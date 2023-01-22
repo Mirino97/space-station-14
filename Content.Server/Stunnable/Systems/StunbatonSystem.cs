@@ -1,6 +1,7 @@
 using Content.Server.Power.Components;
 using Content.Server.Power.Events;
 using Content.Server.Stunnable.Components;
+using Content.Server.Tattle;
 using Content.Shared.Audio;
 using Content.Shared.Damage.Events;
 using Content.Shared.Examine;
@@ -18,7 +19,7 @@ namespace Content.Server.Stunnable.Systems
     public sealed class StunbatonSystem : EntitySystem
     {
         [Dependency] private readonly SharedItemSystem _item = default!;
-        [Dependency] private readonly TattleSystem _tattleSystem = default!;
+        [Dependency] private readonly ServerTattleSystem _tattleSystem = default!;
 
         public override void Initialize()
         {
