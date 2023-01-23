@@ -4,8 +4,6 @@
     <PanelContainer HorizontalAlignment="Right" VerticalAlignment="Bottom">
         <BoxContainer Name="TattleSystemContainer" Access="Public" Orientation="Horizontal">
             <Button Name="PressButton" Text="Click me!" />
-            <Button Name="PressButton1" Text="Click me!" />
-            <Button Name="PressButton2" Text="Click me!" />
         </BoxContainer>
     </PanelContainer>
 </widgets:TattleSystemBar>
