@@ -6,7 +6,7 @@ namespace Content.Client.Tattle;
 
 public sealed class ClientTattleSystem : SharedTattleSystem
 {
-    public event EventHandler<EntityUid>? Test2;
+    public event EventHandler<EntityUid>? CreateNewTattleEvent;
     public override void Initialize()
     {
         base.Initialize();
@@ -16,15 +16,12 @@ public sealed class ClientTattleSystem : SharedTattleSystem
 
     public void ClientTattleHandleState(EntityUid euid, TattleComponent tattleComponent, ref ComponentHandleState args)
     {
-        Logger.Info("Handled on client system");
-
-        if (args.Current is not TattleComponentState state) return;
-
-        if (state.Actor is null)
+        if (args.Current is not TattleComponentState state
+            || state.Actor is null)
             return;
 
         tattleComponent.Tattles.Add(1, state.Actor.Value);
-        Test2?.Invoke(this, euid);
+        CreateNewTattleEvent?.Invoke(this, euid);
         //var test1 = IoCManager.Resolve<TattleSystemBar>();
         //test1.Test(state.Actor.Value);
 

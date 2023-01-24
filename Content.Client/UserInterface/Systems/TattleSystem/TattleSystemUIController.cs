@@ -12,18 +12,18 @@ public sealed class TattleSystemUIController : UIController, IOnSystemChanged<Cl
     [UISystemDependency] private readonly ClientTattleSystem? _alertsSystem = default;
     private TattleSystemBar? UI => UIManager.GetActiveUIWidgetOrNull<TattleSystemBar>();
 
-    private void Test2(object? sender, EntityUid e)
+    private void CreateNewTattle(object? sender, EntityUid e)
     {
-        Logger.Info("Test alert" + e.ToString());
+        UI?.Test(e);
     }
 
     public void OnSystemLoaded(ClientTattleSystem system)
     {
-        system.Test2 += Test2;
+        system.CreateNewTattleEvent += CreateNewTattle;
     }
 
     public void OnSystemUnloaded(ClientTattleSystem system)
     {
-        system.Test2 += Test2;
+        system.CreateNewTattleEvent += CreateNewTattle;
     }
 }
