@@ -2,6 +2,7 @@
 using Content.Client.Gameplay;
 using Content.Client.Tattle;
 using Content.Client.UserInterface.Systems.TattleSystem.Widgets;
+using Content.Shared.Tattle;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 
@@ -12,9 +13,9 @@ public sealed class TattleSystemUIController : UIController, IOnSystemChanged<Cl
     [UISystemDependency] private readonly ClientTattleSystem? _alertsSystem = default;
     private TattleSystemBar? UI => UIManager.GetActiveUIWidgetOrNull<TattleSystemBar>();
 
-    private void CreateNewTattle(object? sender, EntityUid e)
+    private void CreateNewTattle(object? sender, TattleComponent tattleComponent)
     {
-        UI?.Test(e);
+        UI?.Test(tattleComponent);
     }
 
     public void OnSystemLoaded(ClientTattleSystem system)

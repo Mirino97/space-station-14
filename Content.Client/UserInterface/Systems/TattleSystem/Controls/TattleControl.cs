@@ -1,4 +1,5 @@
-﻿using Robust.Client.Graphics;
+﻿using Content.Shared.Tattle;
+using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Utility;
 
@@ -6,10 +7,10 @@ namespace Content.Client.UserInterface.Systems.TattleSystem.Controls;
 
 public sealed class TattleControl : BaseButton
 {
-    public TattleControl(EntityUid uid)
+    public TattleControl(TattleComponent.Tattle tattle)
     {
         MinSize = new Vector2(20, 20);
-        ToolTip = uid.ToString();
+        ToolTip = tattle.Uid.ToString();
 
         var icon = new AnimatedTextureRect
         {
@@ -24,16 +25,7 @@ public sealed class TattleControl : BaseButton
 
         icon.SetFromSpriteSpecifier(specifier);
 
-
-        /*var box = new BoxContainer
-        {
-            MinSize = new Vector2(10, 10),
-            Children =
-            {
-                icon
-            }
-        };*/
-
+        // TODO: mirino make this prettier
         var panel = new PanelContainer()
         {
             MinSize = new Vector2(20, 20),
@@ -47,7 +39,6 @@ public sealed class TattleControl : BaseButton
             {
                 new BoxContainer
                 {
-                    //MinSize = new Vector2(10, 10),
                     Children =
                     {
                         icon

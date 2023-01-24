@@ -6,7 +6,7 @@ namespace Content.Client.Tattle;
 
 public sealed class ClientTattleSystem : SharedTattleSystem
 {
-    public event EventHandler<EntityUid>? CreateNewTattleEvent;
+    public event EventHandler<TattleComponent>? CreateNewTattleEvent;
     public override void Initialize()
     {
         base.Initialize();
@@ -16,15 +16,17 @@ public sealed class ClientTattleSystem : SharedTattleSystem
 
     public void ClientTattleHandleState(EntityUid euid, TattleComponent tattleComponent, ref ComponentHandleState args)
     {
-        if (args.Current is not TattleComponentState state
-            || state.Actor is null)
+        if (args.Current is not TattleComponentState state)
             return;
 
-        tattleComponent.Tattles.Add(1, state.Actor.Value);
-        CreateNewTattleEvent?.Invoke(this, euid);
-        //var test1 = IoCManager.Resolve<TattleSystemBar>();
-        //test1.Test(state.Actor.Value);
+        foreach (var Tattle in state.Tattles)
+        {
+            tattleComponent.Tattles.Add(Tattle);
+        }
 
-        Logger.Info(tattleComponent.Tattles.Keys.Count.ToString());
+        Logger.Info(tattleComponent.Tattles.Count.ToString());
+
+        CreateNewTattleEvent?.Invoke(this, tattleComponent);
+
     }
 }

@@ -1,4 +1,6 @@
 ﻿using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Tattle;
 
@@ -6,6 +8,16 @@ namespace Content.Shared.Tattle;
 [NetworkedComponent]
 public sealed class TattleComponent : Component
 {
-    [ViewVariables] public Dictionary<int, EntityUid> Tattles = new();
+
+    [ViewVariables] public readonly List<Tattle> Tattles = new();
+
+    [Serializable, NetSerializable]
+    public struct Tattle
+    {
+        public EntityUid Uid;
+        public SpriteSpecifier? SpriteSpecifier;
+        public string? Coordinates;
+        public string? Description;
+    }
 
 }
