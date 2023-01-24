@@ -19,9 +19,9 @@ public sealed class ClientTattleSystem : SharedTattleSystem
         if (args.Current is not TattleComponentState state)
             return;
 
-        foreach (var Tattle in state.Tattles)
+        foreach (var tattle in state.Tattles)
         {
-            tattleComponent.Tattles.Add(Tattle);
+            tattleComponent.Tattles.Add(tattle);
         }
 
         Logger.Info(tattleComponent.Tattles.Count.ToString());

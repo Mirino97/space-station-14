@@ -1,5 +1,6 @@
 ﻿using Content.Shared.Tattle;
 using Robust.Shared.GameStates;
+using Robust.Shared.Utility;
 
 
 namespace Content.Server.Tattle;
@@ -19,19 +20,26 @@ public sealed class ServerTattleSystem : SharedTattleSystem
         };
     }
 
-    public void ShowAlert(EntityUid euid)
+    public void ShowAlert(EntityUid euid, SpriteSpecifier? spriteSpecifier, string? coordinates, string? description)
     {
 
         if (!EntityManager.TryGetComponent(euid, out TattleComponent? tattleComponent))
             return;
 
-        var tattle = new TattleComponent.Tattle();
+        //TODO: mirino find a way to move this to the component
+        /*var test = (spriteSpecifier != null)
+            ? spriteSpecifier
+            : new SpriteSpecifier.Rsi(new ResourcePath("Objects/Weapons/Bombs/c4.rsi"), "primed");*/
 
-        tattle.Uid = euid;
+        var tattle = new TattleComponent.Tattle
+        {
+            Uid = euid,
+            SpriteSpecifier = spriteSpecifier,
+            Coordinates = coordinates,
+            Description = description
+        };
 
         tattleComponent.Tattles.Add(tattle);
-
-        //tattleComponent.Tattles.Add((euid, null, null, null));
 
         Dirty(tattleComponent);
     }

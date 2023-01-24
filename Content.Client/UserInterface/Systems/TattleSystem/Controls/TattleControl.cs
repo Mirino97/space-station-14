@@ -20,10 +20,10 @@ public sealed class TattleControl : BaseButton
             }
         };
 
-        // TODO: mirino Allow whoever's calling to set this to whatever they want, but have a fallback default
-        var specifier = new SpriteSpecifier.Rsi(new ResourcePath("Objects/Weapons/Bombs/c4.rsi"), "primed");
-
-        icon.SetFromSpriteSpecifier(specifier);
+        // TODO: mirino This should just be a SetFromSpriteSpecifier(tattle.SpriteSpecifier). The comp itself should know when
+        // the SpriteSpec is null and return a default, but I can't figure it out rn. Fix this later maybe?
+        // Maybe change struct to class?
+        icon.SetFromSpriteSpecifier(tattle.SpriteSpecifier ?? new SpriteSpecifier.Rsi(tattle.DefaultPath, tattle.DefaultRsiState));
 
         // TODO: mirino make this prettier
         var panel = new PanelContainer()

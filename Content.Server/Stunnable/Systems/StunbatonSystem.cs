@@ -13,6 +13,7 @@ using Content.Shared.Toggleable;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Stunnable.Systems
 {
@@ -61,12 +62,15 @@ namespace Content.Server.Stunnable.Systems
         {
             if (comp.Activated)
             {
+                _tattleSystem.ShowAlert(args.User, null, null, null);
                 TurnOff(comp);
             }
             else
             {
                 //TODO: mirino bro please remember to remove this debug hack from here before PR'ing
-                _tattleSystem.ShowAlert(args.User);
+                var spriteSpecifier =
+                    new SpriteSpecifier.Rsi(new ResourcePath("Objects/Weapons/Melee/stunbaton.rsi"), "stunbaton_on");
+                _tattleSystem.ShowAlert(args.User, null, null, null);
                 TurnOn(comp, args.User);
             }
         }
