@@ -11,8 +11,10 @@ namespace Content.Client.UserInterface.Systems.TattleSystem.Widgets;
 [GenerateTypedNameReferences]
 public sealed partial class TattleSystemBar : UIWidget
 {
-    public void CreateTattle(TattleComponent tattleComponent)
+    public void SyncTattlesUI(TattleComponent tattleComponent)
     {
+        TattleSystemContainer.Children.Clear();
+
         foreach (var Tattle in tattleComponent.Tattles)
         {
             var tattleControl = new TattleControl(Tattle);

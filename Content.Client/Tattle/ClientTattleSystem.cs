@@ -6,7 +6,7 @@ namespace Content.Client.Tattle;
 
 public sealed class ClientTattleSystem : SharedTattleSystem
 {
-    public event EventHandler<TattleComponent>? CreateNewTattleEvent;
+    public event EventHandler<TattleComponent>? SyncTattlesEvent;
     public override void Initialize()
     {
         base.Initialize();
@@ -19,14 +19,11 @@ public sealed class ClientTattleSystem : SharedTattleSystem
         if (args.Current is not TattleComponentState state)
             return;
 
-        foreach (var tattle in state.Tattles)
-        {
-            tattleComponent.Tattles.Add(tattle);
-        }
+        tattleComponent.Tattles = state.Tattles;
 
         Logger.Info(tattleComponent.Tattles.Count.ToString());
 
-        CreateNewTattleEvent?.Invoke(this, tattleComponent);
+        SyncTattlesEvent?.Invoke(this, tattleComponent);
 
     }
 }

@@ -10,7 +10,7 @@ public sealed class TattleControl : BaseButton
     public TattleControl(TattleComponent.Tattle tattle)
     {
         MinSize = new Vector2(20, 20);
-        ToolTip = tattle.Uid.ToString();
+        ToolTip = tattle.Description;
 
         var icon = new AnimatedTextureRect
         {

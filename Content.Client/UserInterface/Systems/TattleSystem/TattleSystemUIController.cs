@@ -9,18 +9,18 @@ public sealed class TattleSystemUIController : UIController, IOnSystemChanged<Cl
 {
     private TattleSystemBar? UI => UIManager.GetActiveUIWidgetOrNull<TattleSystemBar>();
 
-    private void CreateNewTattle(object? sender, TattleComponent tattleComponent)
+    private void SyncTattles(object? sender, TattleComponent tattleComponent)
     {
-        UI?.CreateTattle(tattleComponent);
+        UI?.SyncTattlesUI(tattleComponent);
     }
 
     public void OnSystemLoaded(ClientTattleSystem system)
     {
-        system.CreateNewTattleEvent += CreateNewTattle;
+        system.SyncTattlesEvent += SyncTattles;
     }
 
     public void OnSystemUnloaded(ClientTattleSystem system)
     {
-        system.CreateNewTattleEvent += CreateNewTattle;
+        system.SyncTattlesEvent -= SyncTattles;
     }
 }

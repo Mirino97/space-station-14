@@ -9,7 +9,7 @@ namespace Content.Shared.Tattle;
 public sealed class TattleComponent : Component
 {
 
-    [ViewVariables] public readonly List<Tattle> Tattles = new();
+    [ViewVariables] public List<Tattle> Tattles = new();
 
     [Serializable, NetSerializable]
     public struct Tattle
@@ -20,38 +20,38 @@ public sealed class TattleComponent : Component
         // TODO: mirino make Coordinates NOT nullable since the whole point of these buttons is to make people go to specific places
         public string Coordinates = "0,0";
         public string Description = "Something interesting is happening! Click here to go there!";
+        public TimeSpan DeletionTime;
 
         public Tattle() {}
 
-        private Tattle(EntityUid uid)
+        public Tattle(string coordinates, TimeSpan deletionTime)
         {
-            Uid = uid;
+            Coordinates = coordinates;
+            DeletionTime = deletionTime;
         }
-
-        private Tattle(EntityUid uid, SpriteSpecifier spriteSpecifier)
-        {
-            Uid = uid;
-            SpriteSpecifier = spriteSpecifier;
-        }
-
-        private Tattle(EntityUid uid, SpriteSpecifier spriteSpecifier, string coordinates)
+        public Tattle(EntityUid uid, SpriteSpecifier spriteSpecifier, string coordinates, TimeSpan deletionTime)
         {
             Uid = uid;
             SpriteSpecifier = spriteSpecifier;
             Coordinates = coordinates;
+            DeletionTime = deletionTime;
         }
-        private Tattle(EntityUid uid, SpriteSpecifier spriteSpecifier, string coordinates, string description)
+        public Tattle(EntityUid uid, SpriteSpecifier spriteSpecifier, string coordinates, string description, TimeSpan deletionTime)
         {
             Uid = uid;
             SpriteSpecifier = spriteSpecifier;
             Coordinates = coordinates;
             Description = description;
+            DeletionTime = deletionTime;
         }
 
-        public Tattle WithCoordinates(string coordinates)
+        // TODO: mirino All of this is probably unnecessary since the idea is for people to instantiate ServerTattleSystem
+        // and call ShowTattle() instead of making a Tattle from zero
+        /*public Tattle WithCoordinates(string coordinates, TimeSpan creationTime)
         {
             var me = this;
             me.Coordinates = coordinates;
+            me.CreationTime = creationTime;
 
             return me;
         }
@@ -60,6 +60,7 @@ public sealed class TattleComponent : Component
             var me = this;
             me.SpriteSpecifier = spriteSpecifier;
             me.Coordinates = coordinates;
+            me.CreationTime = creationTime;
 
             return me;
         }
@@ -70,6 +71,7 @@ public sealed class TattleComponent : Component
             me.SpriteSpecifier = spriteSpecifier;
             me.Coordinates = coordinates;
             me.Description = description;
+            me.CreationTime = creationTime;
 
             return me;
         }
@@ -81,9 +83,10 @@ public sealed class TattleComponent : Component
             me.SpriteSpecifier = spriteSpecifier;
             me.Coordinates = coordinates;
             me.Description = description;
+            me.CreationTime = creationTime;
 
             return me;
-        }
+        }*/
 
     }
 
