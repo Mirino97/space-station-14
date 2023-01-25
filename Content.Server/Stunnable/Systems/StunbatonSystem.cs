@@ -62,15 +62,14 @@ namespace Content.Server.Stunnable.Systems
         {
             if (comp.Activated)
             {
-                _tattleSystem.ShowAlert(args.User, null, null, null);
+                _tattleSystem.ShowAlert("10", args.User);
                 TurnOff(comp);
             }
             else
             {
                 //TODO: mirino bro please remember to remove this debug hack from here before PR'ing
-                var spriteSpecifier =
-                    new SpriteSpecifier.Rsi(new ResourcePath("Objects/Weapons/Melee/stunbaton.rsi"), "stunbaton_on");
-                _tattleSystem.ShowAlert(args.User, null, null, null);
+
+                _tattleSystem.ShowAlert("10", args.User);
                 TurnOn(comp, args.User);
             }
         }

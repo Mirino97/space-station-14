@@ -20,24 +20,13 @@ public sealed class ServerTattleSystem : SharedTattleSystem
         };
     }
 
-    public void ShowAlert(EntityUid euid, SpriteSpecifier? spriteSpecifier, string? coordinates, string? description)
+    public void ShowAlert(string coordinates, EntityUid? euid = null, SpriteSpecifier? spriteSpecifier = null, string? description = null)
     {
 
         if (!EntityManager.TryGetComponent(euid, out TattleComponent? tattleComponent))
             return;
 
-        //TODO: mirino find a way to move this to the component
-        /*var test = (spriteSpecifier != null)
-            ? spriteSpecifier
-            : new SpriteSpecifier.Rsi(new ResourcePath("Objects/Weapons/Bombs/c4.rsi"), "primed");*/
-
-        var tattle = new TattleComponent.Tattle
-        {
-            Uid = euid,
-            SpriteSpecifier = spriteSpecifier,
-            Coordinates = coordinates,
-            Description = description
-        };
+        var tattle = new TattleComponent.Tattle().WithCoordinates(coordinates);
 
         tattleComponent.Tattles.Add(tattle);
 

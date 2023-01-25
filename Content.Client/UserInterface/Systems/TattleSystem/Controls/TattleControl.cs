@@ -20,12 +20,9 @@ public sealed class TattleControl : BaseButton
             }
         };
 
-        // TODO: mirino This should just be a SetFromSpriteSpecifier(tattle.SpriteSpecifier). The comp itself should know when
-        // the SpriteSpec is null and return a default, but I can't figure it out rn. Fix this later maybe?
-        // Maybe change struct to class?
-        icon.SetFromSpriteSpecifier(tattle.SpriteSpecifier ?? new SpriteSpecifier.Rsi(tattle.DefaultPath, tattle.DefaultRsiState));
+        icon.SetFromSpriteSpecifier(tattle.SpriteSpecifier);
 
-        // TODO: mirino make this prettier
+        // TODO: mirino make this UI prettier
         var panel = new PanelContainer()
         {
             MinSize = new Vector2(20, 20),

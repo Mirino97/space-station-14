@@ -6,24 +6,18 @@ using Robust.Client.UserInterface.Controls;
 namespace Content.Client.UserInterface.Systems.TattleSystem.Widgets;
 
 /// <summary>
-///     The status effects display on the right side of the screen.
+///     The Tattle buttons that are displayed top-right in the HUD
 /// </summary>
 [GenerateTypedNameReferences]
 public sealed partial class TattleSystemBar : UIWidget
 {
-    public void Test(TattleComponent tattleComponent)
+    public void CreateTattle(TattleComponent tattleComponent)
     {
-        Logger.Info("Test inside Tattle.xaml hit!");
-
-        // TODO: mirino This does what I need, but I need to handle key conflicts and I'm almost sure this can be done better
         foreach (var Tattle in tattleComponent.Tattles)
         {
             var tattleControl = new TattleControl(Tattle);
 
             TattleSystemContainer.Children.Add(tattleControl);
         }
-
-
-
     }
 }
