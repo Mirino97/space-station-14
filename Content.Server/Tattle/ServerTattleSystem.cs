@@ -34,7 +34,7 @@ public sealed class ServerTattleSystem : SharedTattleSystem
                 tattleComponent.Tattles.RemoveAt(i);
         }
 
-        var newTattle = new TattleComponent.Tattle(coordinates, _timing.CurTime.Add(new TimeSpan(0,0,0,5)));
+        var newTattle = new TattleComponent.Tattle(coordinates, _timing.CurTime.Add(new TimeSpan(0,0,0,50)));
 
         tattleComponent.Tattles.Add(newTattle);
 

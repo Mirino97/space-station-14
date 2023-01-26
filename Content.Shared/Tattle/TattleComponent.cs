@@ -19,6 +19,7 @@ public sealed class TattleComponent : Component
         public SpriteSpecifier SpriteSpecifier = new SpriteSpecifier.Rsi(new ResourcePath("Objects/Weapons/Bombs/c4.rsi"), "primed");
         // TODO: mirino make Coordinates NOT nullable since the whole point of these buttons is to make people go to specific places
         public string Coordinates = "0,0";
+        // TODO: mirino localize this
         public string Description = "Something interesting is happening! Click here to go there!";
         public TimeSpan DeletionTime;
 

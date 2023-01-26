@@ -62,6 +62,8 @@ namespace Content.Server.Stunnable.Systems
         {
             if (comp.Activated)
             {
+                //TODO: mirino bro please remember to remove this debug hack from here before PR'ing
+
                 _tattleSystem.ShowAlert("10", args.User);
                 TurnOff(comp);
             }

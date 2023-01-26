@@ -4,6 +4,7 @@
   parent: BaseItem
   id: C4
   components:
+    - type: Tattle
     - type: Sprite
       sprite: Objects/Weapons/Bombs/c4.rsi
       state: icon
