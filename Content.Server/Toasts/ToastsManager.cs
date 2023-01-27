@@ -7,6 +7,6 @@ public sealed class ToastsManager : SharedToastsSystem
     public void Test(string test)
     {
         Logger.Info("Inside Test in server.");
-        RaiseNetworkEvent(new ToastsTestMessage("Get sent bitch!"));
+        RaiseNetworkEvent(new ToastsTestMessage(test));
     }
 }

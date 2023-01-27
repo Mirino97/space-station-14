@@ -65,7 +65,7 @@ namespace Content.Server.Stunnable.Systems
             else
             {
                 TurnOn(comp, args.User);
-                _toastMan.Test("Yoo bitch!");
+                _toastMan.Test("Stunbaton Activated!");
             }
         }
 
