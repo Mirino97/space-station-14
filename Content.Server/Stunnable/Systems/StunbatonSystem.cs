@@ -1,6 +1,7 @@
 using Content.Server.Power.Components;
 using Content.Server.Power.Events;
 using Content.Server.Stunnable.Components;
+using Content.Server.Toasts;
 using Content.Shared.Audio;
 using Content.Shared.Damage.Events;
 using Content.Shared.Examine;
@@ -17,6 +18,7 @@ namespace Content.Server.Stunnable.Systems
     public sealed class StunbatonSystem : EntitySystem
     {
         [Dependency] private readonly SharedItemSystem _item = default!;
+        [Dependency] private readonly ToastsManager _toastMan = default!;
 
         public override void Initialize()
         {
@@ -63,6 +65,7 @@ namespace Content.Server.Stunnable.Systems
             else
             {
                 TurnOn(comp, args.User);
+                _toastMan.Test("Yoo bitch!");
             }
         }
 
