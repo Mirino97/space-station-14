@@ -68,7 +68,7 @@ namespace Content.Server.Stunnable.Systems
             {
                 TurnOn(comp, args.User);
                 // TODO: mirino Clean this up when you're done.
-                _toastMan.Test("Stunbaton Activated!");
+                _toastMan.Test("Normal");
             }
         }
 

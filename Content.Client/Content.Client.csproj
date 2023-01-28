@@ -33,6 +33,16 @@
     <Compile Update="UserInterface\Systems\Inventory\Windows\StrippingWindow.xaml.cs">
       <DependentUpon>StrippingWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Remove="Toasts\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Toasts\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Toasts\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Remove="Toasts\**" />
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\XamlIL.targets" />
   <Import Project="..\RobustToolbox\MSBuild\Robust.Analyzers.targets" />
