@@ -2,6 +2,7 @@ using Content.Server.Power.Components;
 using Content.Server.Power.Events;
 using Content.Server.Stunnable.Components;
 using Content.Server.Toasts;
+using Content.Shared.Administration;
 using Content.Shared.Audio;
 using Content.Shared.Damage.Events;
 using Content.Shared.Examine;
@@ -11,6 +12,7 @@ using Content.Shared.Popups;
 using Content.Shared.Toggleable;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
+using Robust.Shared.Console;
 using Robust.Shared.Player;
 
 namespace Content.Server.Stunnable.Systems
@@ -65,6 +67,7 @@ namespace Content.Server.Stunnable.Systems
             else
             {
                 TurnOn(comp, args.User);
+                // TODO: mirino Clean this up when you're done.
                 _toastMan.Test("Stunbaton Activated!");
             }
         }
@@ -128,6 +131,22 @@ namespace Content.Server.Stunnable.Systems
                 Used = used,
                 User = user
             }, false);
+        }
+        // TODO: mirino Clean this up when you're done.
+        [AnyCommand]
+        public sealed class ToastTestCommand : IConsoleCommand
+        {
+            public string Command => "toasttest";
+
+            public string Description => "FIRE!!";
+
+            public string Help => $"Usage: {Command} <user resource path>";
+
+            public void Execute(IConsoleShell shell, string argStr, string[] args)
+            {
+                var _toastMan = IoCManager.Resolve<ToastsManager>();
+                _toastMan.Test("Hello from command!");
+            }
         }
     }
 }
