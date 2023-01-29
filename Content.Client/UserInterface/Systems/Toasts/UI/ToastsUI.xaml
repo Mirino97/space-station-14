@@ -1,0 +1,5 @@
+﻿<normaltoast:ToastsUI
+    xmlns="https://spacestation14.io"
+    xmlns:normaltoast="clr-namespace:Content.Client.UserInterface.Systems.Toasts.UI">
+    <PanelContainer />
+</normaltoast:ToastsUI>

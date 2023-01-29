@@ -63,6 +63,8 @@ namespace Content.Server.Stunnable.Systems
             if (comp.Activated)
             {
                 TurnOff(comp);
+                // TODO: mirino Clean this up when you're done.
+                _toastMan.Test("Second");
             }
             else
             {

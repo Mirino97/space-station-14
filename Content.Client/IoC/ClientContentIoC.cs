@@ -18,6 +18,8 @@ using Content.Shared.Administration;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Module;
 using Content.Client.Guidebook;
+using Content.Client.UserInterface.Systems.Toasts;
+using Content.Client.UserInterface.Systems.Toasts.UI;
 
 namespace Content.Client.IoC
 {
@@ -44,6 +46,7 @@ namespace Content.Client.IoC
             IoCManager.Register<ExtendedDisconnectInformationManager>();
             IoCManager.Register<PlayTimeTrackingManager>();
             IoCManager.Register<DocumentParsingManager>();
+            IoCManager.Register<ToastsUIController>(); // TODO: mirino Figure out if this is correct.
         }
     }
 }
