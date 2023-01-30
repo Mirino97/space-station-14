@@ -9,7 +9,7 @@ public sealed class NormalToastControl : BaseButton
     public NormalToastControl(string test)
     {
         MinSize = new Vector2(20, 20);
-        ToolTip = "Test";
+        ToolTip = test;
 
         var icon = new AnimatedTextureRect
         {

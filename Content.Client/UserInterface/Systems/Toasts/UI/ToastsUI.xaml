@@ -1,5 +1,5 @@
 ﻿<normaltoast:ToastsUI
     xmlns="https://spacestation14.io"
     xmlns:normaltoast="clr-namespace:Content.Client.UserInterface.Systems.Toasts.UI">
-    <PanelContainer />
+    <BoxContainer Name="ToastsContainer" Orientation="Horizontal" HorizontalExpand="False" Access="Protected" />
 </normaltoast:ToastsUI>
