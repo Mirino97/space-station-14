@@ -264,7 +264,8 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             return false;
 
         // Initial damage scales off of the available supply on the principle that the victim has shorted the entire powernet through their body.
-        var damageScale = supp * ElectrifiedScalePerWatt;
+        // Capped at 5 because one-hit kills in a dark maintenance tunnel with zero reaction time is really, really not fun.
+        var damageScale = Math.Min(supp * ElectrifiedScalePerWatt, 5);
 
         {
             var lastRet = true;
